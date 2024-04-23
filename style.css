@@ -46,9 +46,8 @@ body {
   background-color: white;
   width: 500px;
   border-radius: 5px;
-  padding: 25px;
-  box-shadow:  -5px 5px 25px 0px  hsl(226, 100%, 87%)
-;
+  padding: 35px;
+  box-shadow: -5px 5px 25px 0px hsl(226, 100%, 87%);
 }
 .pageviews {
   display: flex;
@@ -56,29 +55,44 @@ body {
   align-items: center;
   width: 100%;
 }
-
-#sliderr {
+.range {
   width: 100%;
+  position: relative;
+  padding: 40px 0;
+}
+#slider {
+  width: 100%;
+  outline: none;
   accent-color: hsl(174, 77%, 80%);
-  padding: 35px 0;
-}
-input[type="range"]:focus::-webkit-slider-thumb {
-  border: 1px solid #053a5f;
-  outline: 3px solid #053a5f;
-  outline-offset: 0.125rem;
-
 }
 
-
-.icon-slider {
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  position: relative;
+}
+#selector {
+  height: 104px;
+  width: 48px;
   position: absolute;
-  transform: translatex(200px);
-  transform: translateY(10%);
-  width: 40px;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.selectingBtn {
   height: 40px;
-  border-style: none;
-  border-radius: 50%;
+  width: 40px;
+  background-image: url(./images/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
   background-color: hsl(174, 86%, 45%);
+  background-position: center;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
 }
 
 .check {
@@ -86,49 +100,45 @@ input[type="range"]:focus::-webkit-slider-thumb {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   padding-right: 20px;
-  border-bottom: 1px solid hsl(224, 65%, 95%);
-  padding-bottom: 40px;
+  border-bottom: 1px solid hsl(227, 43%, 90%);
+  padding: 30px 0 60px 0;
 }
 .switch {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+input[type="checkbox"] {
   position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 23px;
+  width: 50px;
+  height: 25px;
+  -webkit-appearance: none;
+  background-color: hsl(227, 33%, 84%);
+  border-radius: 20px;
+  outline: none;
 }
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+input:checked[type="checkbox"] {
+  background: hsl(174, 86%, 45%);
 }
-
-.slider:before {
-  position: absolute;
+input[type="checkbox"]:before {
   content: "";
-  height: 15px;
-  width: 15px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  top: 3px;
+  left: 5px;
+  background: white;
 }
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+input:checked[type="checkbox"]:before {
+  left: 25px;
 }
-
-.slider.round:before {
-  border-radius: 50%;
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+input:checked[type="checkbox"]:hover {
+  cursor: pointer;
 }
 .discount {
   background-color: hsl(14, 92%, 95%);
@@ -141,7 +151,7 @@ input[type="range"]:focus::-webkit-slider-thumb {
 .list {
   display: flex;
   justify-content: space-between;
-  padding-top: 25px;
+  padding-top: 35px;
   list-style-image: url(./images/icon-check.svg);
 }
 .list li {
@@ -158,6 +168,10 @@ input[type="range"]:focus::-webkit-slider-thumb {
   background-color: hsl(227, 35%, 25%);
   color: hsl(225, 20%, 60%);
   border: none;
+}
+.submit:hover {
+  cursor: pointer;
+  color: white;
 }
 h1 {
   color: hsl(227, 35%, 25%);
